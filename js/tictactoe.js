@@ -106,14 +106,19 @@ $(document).ready(function(){
     var turns = 1;
 
     $("#board tr td").click(function() {
-      if ($(this).text()==="" && flag) {
+
+      let string = $(this)[0].classList[0];
+      let index_i = parseInt(string[4]);
+      let index_j = parseInt(string[5]);
+
+      if (Board[index_i*3+index_j] === '-' && flag){
+      /*if ($(this).text()==="" && flag) {
 
         let string = $(this)[0].classList[0];
         let index_i = parseInt(string[4]);
-        let index_j = parseInt(string[5]);
+        let index_j = parseInt(string[5]);*/
+       $(this).append("<i class='fa fa-times' style='20px'></i>");
 
-
-        $(this).append("X");
         Board[index_i*3+index_j] = 'X';
     ///      $('td').eq(index_i*3+index_j).append("X");\\
 
@@ -126,7 +131,7 @@ $(document).ready(function(){
         let indexi = (n.index - indexj)/3;
 
 
-        $('td').eq(indexi*3+indexj).append("O");
+        $('td').eq(indexi*3+indexj).append("<i class='fa fa-circle-thin' style='20px'></i>");
           Board[indexi*3+indexj] = 'O';
       //    $('td').eq(index_i*3+index_j).append("O");
 
@@ -135,7 +140,7 @@ $(document).ready(function(){
         if (m!==0) {
           flag = false;
           if (m==='X') alert("Player 1 won");
-          else alert("Player 2 won");
+          else alert("CPU won");
         }
         else
         {

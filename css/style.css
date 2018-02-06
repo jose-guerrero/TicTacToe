@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body{
+  background-color: #acdac7;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -10,8 +14,9 @@ table {
 
 #board {
   padding: 0px;
-  margin: 0 auto;
-  margin-top: 25px;
+  margin: auto;
+  margin-top: 100px;
+  background-color: #c19b6c;
 }
 
 #board tr td {
@@ -32,5 +37,22 @@ table {
 {
   display: block;
   margin: 20px auto;
-  width: 100px;
+  width: 200px;
+padding: 20px;
+cursor: pointer;
+font-weight: bold;
+font-size: 120%;
+background: #3366cc;
+color: #fff;
+border: 1px solid #3366cc;
+border-radius: 10px;
 }
+
+#reset:hover {
+color: #ffff00;
+background: #000;
+border: 1px solid #fff;
+}
+
+
+.x { background: red !important;}

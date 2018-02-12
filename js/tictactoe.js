@@ -3,17 +3,17 @@ let Board = ['-','-','-','-','-','-','-','-','-'];
 let flag = true;
 let max_depth;
 
-if (window.location.href.length===64)
+if (window.location.href[window.location.href.length-6]==='y')
 {
   max_depth=2;
 }
 
-if (window.location.href.length===72)
+if (window.location.href[window.location.href.length-6]==='e')
 {
   max_depth=6;
 }
 
-if (window.location.href.length===68)
+if (window.location.href[window.location.href.length-6]==='d')
 {
   max_depth=20;
 }

@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> Tic-Tac-Toe </title>
-    <script src="js/jquery.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-     <link type="text/css" rel="stylesheet" href="css/style.css" />
-     <script src="js/tictactoe.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
 
+    <script src="js/jquery.js"></script>
+  <title>Star Wars Tic-Tac-Toe</title>
 </head>
+
 <body>
 
-<table id='board'>
-  <tr>
-    <td class = "item00"></td>
-    <td class = "item01"></td>
-    <td class = "item02"></td>
-  </tr>
-  <tr>
-    <td class = "item10"></td>
-    <td class = "item11"></td>
-    <td class = "item12"></td>
-  </tr>
-  <tr>
-    <td class = "item20"></td>
-    <td class = "item21"></td>
-    <td class = "item22"></td>
-  </tr>
-</table>
+  <div class='sky'>
+  <div class='stars'>
+    <h2> STAR WARS TIC-TAC-TOE</h2>
+  <div class = "container">
+			<div id = "buttons1">
+    	  <form action="index_2.html">
+        <input type="hidden" name="Easy" value="true">
+      	<input type="submit"  class="op1" value="Easy">
+      	</form>
 
-<input id="reset" type="button" value="Reset Game" />
 
+				<form action="index_2.html">
+				<input type="hidden" name="Intermediate" value="true">
+			 	<input type="submit" class="op1" value="Intermediate">
+				</form>
+
+        <form action="index_2.html">
+				<input type="hidden" name="Advanced" value="true">
+			 	<input type="submit" class="op1" value="Impossible">
+				</form>
+
+			</div>
+
+	</div>
+</div>
+</div>
+
+    <audio src="sound/star-wars-theme-song.mp3" id='audio'></audio>
+    <script>
+      $("#audio")[0].play( );
+    </script>
 </body>
 </html>

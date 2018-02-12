@@ -1,6 +1,24 @@
 
-var Board = ['-','-','-','-','-','-','-','-','-'];
-var flag = true;
+let Board = ['-','-','-','-','-','-','-','-','-'];
+let flag = true;
+let max_depth;
+
+if (window.location.href.length===68)
+{
+  max_depth=2;
+}
+
+if (window.location.href.length===76)
+{
+  max_depth=6;
+}
+
+if (window.location.href.length===72)
+{
+  max_depth=20;
+}
+
+
 
 const wins = [
               [0,1,2],
@@ -39,7 +57,7 @@ const checkForWinner = function() {
 }
 
 
-const minimax = function (player,ii,ij)
+const minimax = function (player,ii,ij,depth)
 {
   let spots = emptySquares();
   let maxval = -1000;
@@ -48,11 +66,12 @@ const minimax = function (player,ii,ij)
 
   let n = checkForWinner();
 
+  if (depth===max_depth) return {score:0};
 
   if (n != 0)
   {
-      if (n === 'X') return {score:-10};
-      if (n === 'O') return {score:10};
+      if (n === 'X') return {score:-10+depth};
+      if (n === 'O') return {score:10-depth};
   }
   else
   {
@@ -71,7 +90,7 @@ const minimax = function (player,ii,ij)
     {
       Board[spots[i]] = 'O';
 
-			var result = minimax('human',indexi,indexj);
+			var result = minimax('human',indexi,indexj,depth+1);
 
       if (result.score > maxval)
       {
@@ -84,7 +103,7 @@ const minimax = function (player,ii,ij)
     {
       Board[spots[i]] = 'X';
 
-    	var result = minimax('computer',indexi,indexj);
+    	var result = minimax('computer',indexi,indexj,depth+1);
 
       if (result.score < minval)
       {
@@ -125,7 +144,7 @@ $(document).ready(function(){
 
 
 
-        let n = minimax('computer',0,0);
+        let n = minimax('computer',0,0,0);
 
         let indexj = n.index% 3;
         let indexi = (n.index - indexj)/3;
